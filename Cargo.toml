@@ -1,0 +1,6 @@
+[package]
+name = "dns_efi"
+version = "0.1.0"
+authors = ["Raminder Singh <raminder.singh@1e.com>"]
+
+[dependencies]
