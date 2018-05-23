@@ -1,3 +1,4 @@
+#![no_std]
 #![recursion_limit="100"]
 //! The network-agnostic DNS parser library
 //!

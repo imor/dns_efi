@@ -1,3 +1,4 @@
+use efi::Vec;
 use byteorder::{ByteOrder, BigEndian};
 
 use {Opcode, ResponseCode, Header, QueryType, QueryClass};

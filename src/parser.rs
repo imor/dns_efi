@@ -1,5 +1,5 @@
 //use std::i32;
-
+use efi::Vec;
 use byteorder::{BigEndian, ByteOrder};
 
 use {Header, Packet, Error, Question, Name, QueryType, QueryClass};
