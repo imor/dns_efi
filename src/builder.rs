@@ -54,11 +54,23 @@ impl Builder {
             panic!("Too late to add a question");
         }
         self.write_name(qname);
-        BigEndian::write_u16(&mut self.buf, qtype as u16);
+        //BigEndian::write_u16(&mut self.buf, qtype as u16);
         //self.buf.write_u16::<BigEndian>(qtype as u16).unwrap();
+        //TODO:Take into account endianness. Also remove the low level bit twiddling
+        let qtype_u16 = qtype as u16;
+        let b1 : u8 = ((qtype_u16 >> 8) & 0xff) as u8;
+        let b2 : u8 = (qtype_u16 & 0xff) as u8;
+        self.buf.push(b1);
+        self.buf.push(b2);
         let prefer_unicast: u16 = if prefer_unicast { 0x8000 } else { 0x0000 };
-        BigEndian::write_u16(&mut self.buf, qclass as u16 | prefer_unicast);
+        //BigEndian::write_u16(&mut self.buf, qclass as u16 | prefer_unicast);
         //self.buf.write_u16::<BigEndian>(qclass as u16 | prefer_unicast).unwrap();
+        //TODO:Take into account endianness. Also remove the low level bit twiddling
+        let qclass_u16 = qclass as u16 | prefer_unicast;
+        let b1 : u8 = ((qclass_u16 >> 8) & 0xff) as u8;
+        let b2 : u8 = (qclass_u16 & 0xff) as u8;
+        self.buf.push(b1);
+        self.buf.push(b2);
         let oldq = BigEndian::read_u16(&self.buf[4..6]);
         if oldq == 65535 {
             panic!("Too many questions");
