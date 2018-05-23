@@ -4,3 +4,8 @@ version = "0.1.0"
 authors = ["Raminder Singh <raminder.singh@1e.com>"]
 
 [dependencies]
+efi = { path = "../efi"}
+#efi = { git = "https://github.com/gurry/efi"}
+#quick-error = "1.0.0"
+#byteorder = "1"
+byteorder = { version = "1", default-features = false }
