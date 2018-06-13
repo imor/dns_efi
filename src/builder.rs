@@ -1,4 +1,4 @@
-use efi::Vec;
+use alloc::Vec;
 use byteorder::{ByteOrder, BigEndian};
 
 use {Opcode, ResponseCode, Header, QueryType, QueryClass};
