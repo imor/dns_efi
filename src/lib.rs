@@ -1,5 +1,6 @@
 #![no_std]
 #![recursion_limit="100"]
+#![feature(alloc)]
 //! The network-agnostic DNS parser library
 //!
 //! [Documentation](https://docs.rs/dns-parser) |
@@ -18,6 +19,7 @@
 
 extern crate byteorder;
 extern crate efi;
+#[macro_use] extern crate alloc;
 #[cfg(test)] #[macro_use] extern crate matches;
 //#[macro_use(quick_error)] extern crate quick_error;
 //#[cfg(feature = "with-serde")] #[macro_use] extern crate serde_derive;

@@ -1,6 +1,6 @@
 use {QueryType, QueryClass, Name, Class, Header, RData};
 use rdata::opt;
-use efi::Vec;
+use alloc::Vec;
 
 /// Parsed DNS packet
 //#[derive(Debug)]
